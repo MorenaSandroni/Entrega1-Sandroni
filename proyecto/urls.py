@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import formProfesores
-
+from app.views import form_Profesores, form_Estudiantes, form_Maestranza, mostrar_Profesores, mostrar_Estudiantes, mostrar_Maestranza
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('profesores/', formProfesores),
+    path('profesores/', form_Profesores),
+    path('mostrarprofesores/', mostrar_Profesores),
+    path('estudiantes/', form_Estudiantes),
+     path('mostrarestudiantes/', mostrar_Estudiantes),
+    path('maestranza/', form_Maestranza),
+     path('mostrarmaestranza/', mostrar_Maestranza),
 ]
