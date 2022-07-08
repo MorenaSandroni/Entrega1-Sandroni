@@ -17,3 +17,6 @@ class formMaestranza(forms.Form):
     apellido = forms.CharField(max_length=40)
     dni = forms.IntegerField()
     sector = forms.IntegerField()
+
+class form_busqueda_estudiantes(forms.Form):
+    criterio = forms.CharField(max_length=40)

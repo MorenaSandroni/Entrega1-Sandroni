@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.forms import formProfesores, formEstudiantes,formMaestranza
+from app.forms import  formProfesores, formEstudiantes,formMaestranza, form_busqueda_estudiantes
 from app.models import Profesor, Estudiante, Maestranza
 
 
@@ -69,3 +69,15 @@ def mostrar_Maestranza(request):
 
     maestranza = Maestranza.objects.all()
     return render (request,  "app/mostrarMaestranza.html", {"maestranza": maestranza})
+
+def buscar_estudiante(request):
+
+    if request.GET:
+        busquedaEstudiantes = form_busqueda_estudiantes(request.GET)
+
+        estudiantes = Estudiante.objects.filter(nombre = busquedaEstudiantes["criterio"]).all()
+
+        return render (request, "app/busquedaEstudiantes.html", {"estudiantes" : estudiantes})
+    
+    busquedaEstudiantes = form_busqueda_estudiantes()
+    return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" :busquedaEstudiantes})
