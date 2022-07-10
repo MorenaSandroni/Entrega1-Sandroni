@@ -74,12 +74,12 @@ def mostrar_Maestranza(request):
 
 def buscar_estudiante(request):
 
-    if request.GET:
-        busquedaEstudiantes = form_busqueda_estudiantes(request.GET)
-
-        estudiantes = Estudiante.objects.filter(nombre = busquedaEstudiantes["criterio"]).all()
-
-        return render (request, "app/busquedaEstudiantes.html", {"estudiantes" : estudiantes})
-    
     busquedaEstudiantes = form_busqueda_estudiantes()
+
+    if request.GET:
+        
+        estudiantes = Estudiante.objects.filter(nombre=busquedaEstudiantes["criterio"]).all()
+        
+        return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" : busquedaEstudiantes, "estudiantes" : estudiantes})
+    
     return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" :busquedaEstudiantes})

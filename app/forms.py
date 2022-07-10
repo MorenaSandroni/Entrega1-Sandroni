@@ -19,4 +19,4 @@ class formMaestranza(forms.Form):
     sector = forms.IntegerField()
 
 class form_busqueda_estudiantes(forms.Form):
-    criterio = forms.CharField(max_length=40)
+    criterio = forms.CharField()
