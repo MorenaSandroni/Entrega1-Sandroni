@@ -26,4 +26,5 @@ urlpatterns = [
     path('maestranza/', form_Maestranza),
      path('mostrarmaestranza/', mostrar_Maestranza),
      path('buscarestudiante/', buscar_estudiante ),
+     
 ]

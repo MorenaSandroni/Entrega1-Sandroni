@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from app.forms import  formProfesores, formEstudiantes,formMaestranza, form_busqueda_estudiantes
+from app.forms import  formProfesores, formEstudiantes,formMaestranza,form_busqueda_estudiantes
 from app.models import Profesor, Estudiante, Maestranza
-
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -74,12 +74,18 @@ def mostrar_Maestranza(request):
 
 def buscar_estudiante(request):
 
-    busquedaEstudiantes = form_busqueda_estudiantes()
+    formularioEs = form_busqueda_estudiantes()
 
     if request.GET:
         
-        estudiantes = Estudiante.objects.filter(nombre=busquedaEstudiantes["criterio"]).all()
-        
-        return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" : busquedaEstudiantes, "estudiantes" : estudiantes})
+        resultado = Estudiante.objects.filter(nombre=request.GET["criterio"]).all()
     
-    return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" :busquedaEstudiantes})
+    else:
+        resultado = []
+    
+
+        #estudiantes = Estudiante.objects.filter(nombre=busquedaEstudiantes["criterio"]).all()
+        
+    return render (request, "app/busquedaEstudiantes.html", {"formularioEs" : formularioEs, "resultado" : resultado})
+
+    #return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" :busquedaEstudiantes})

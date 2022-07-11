@@ -10,20 +10,21 @@
 <h1> Busqueda de Estudiante por NOMBRE</h1>
 
 <form action="" method="GET">
-    {{busquedaEstudiantes}}
-    <button type="submit"> BUSCAR </button>
+    {{formularioEs}}
+    <button type="submit">Buscar</button>
 </form>
+ 
 
-{% if estudiantes %}
-<ul>
-    {% for estudiante in estudiantes %}
-        <li>{{estudiante.nombre}}</li>   
-    {% endfor %}
-    </ul>
-{% else %}
-    <h1> No hay cursos con ese criterio !!</h1>
+    {% if resultado %}
+        <ul>
+        {% for estudiante in resultado %}
+            <li>{{estudiante.nombre}}</li>   
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h1> No hay estudiantes con ese criterio !!</h1>
+    {% endif %}
 
-{% endif %}
 
 </body>
 </html>
