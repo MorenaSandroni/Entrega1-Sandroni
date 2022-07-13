@@ -18,7 +18,7 @@ from django.urls import path
 from app.views import form_Profesores, form_Estudiantes, form_Maestranza, mostrar_Profesores, mostrar_Estudiantes, mostrar_Maestranza,buscar_estudiante,index
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', index, name= "Inicio"),
+    path('', index, name= "Inicio"),
     path('profesores/', form_Profesores, name= "Profesores"),
     path('mostrarprofesores/', mostrar_Profesores, name= "VerProfesores"),
     path('estudiantes/', form_Estudiantes, name= "Estudiantes"),
