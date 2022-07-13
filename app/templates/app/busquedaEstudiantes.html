@@ -7,24 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-<h1> Busqueda de Estudiante por NOMBRE</h1>
 
-<form action="" method="GET">
-    {{formularioEs}}
-    <button type="submit">Buscar</button>
-</form>
- 
+    {% extends 'app/base.html' %}
+    {% block content %}
+        <h1> Busqueda de Estudiante por NOMBRE</h1>
 
-    {% if resultado %}
-        <ul>
-        {% for estudiante in resultado %}
-            <li>{{estudiante.nombre}}</li>   
-        {% endfor %}
-        </ul>
-    {% else %}
-        <h1> No hay estudiantes con ese criterio !!</h1>
-    {% endif %}
+        <form action="" method="GET">
+            {{formularioEs}}
+            <button type="submit">Buscar</button>
+        </form>
+        
 
+        {% if formularioEs.criterio != null %}
+            {% if resultado %}
+                <ul>
+                {% for estudiante in resultado %}
+                    <li>soy {{estudiante.nombre}} {{estudiante.apellido}} de DNI {{estudiante.dni}} , estoy en el curso {{estudiante.curso}} </li>   
+                {% endfor %}
+                </ul>
+            {% else %}
+                <h1> No hay estudiantes con ese criterio !!</h1>
+            {% endif %}
+        {% endif %}
+    {% endblock %}
 
 </body>
 </html>

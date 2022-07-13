@@ -7,15 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        {% for estudiante in estudiantes %}
-            <li>
-                Nombre: {{estudiante.nombre}} ,
-                Apellido: {{estudiante.apellido}},
-                dni: {{estudiante.dni}},
-                curso: {{estudiante.curso}}
-            </li>
-        {% endfor %}
-    </ul>
+    {% extends 'app/base.html' %}
+    {% block content %}
+        <ul>
+            {% for estudiante in estudiantes %}
+                <li>
+                    Nombre: {{estudiante.nombre}} ,
+                    Apellido: {{estudiante.apellido}},
+                    dni: {{estudiante.dni}},
+                    curso: {{estudiante.curso}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
 </body>
 </html>

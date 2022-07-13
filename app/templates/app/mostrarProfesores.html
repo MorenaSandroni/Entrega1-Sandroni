@@ -7,15 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        {% for profesor in profesores %}
-            <li>
-                Nombre: {{profesor.nombre}} ,
-                Apellido: {{profesor.apellido}},
-                dni: {{profesor.dni}},
-                asignatura: {{profesor.asignatura}}
-            </li>
-        {% endfor %}
-    </ul>
+    {% extends 'app/base.html' %}
+    {% block content %}
+        <ul>
+            {% for profesor in profesores %}
+                <li>
+                    Nombre: {{profesor.nombre}} ,
+                    Apellido: {{profesor.apellido}},
+                    dni: {{profesor.dni}},
+                    asignatura: {{profesor.asignatura}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
 </body>
 </html>

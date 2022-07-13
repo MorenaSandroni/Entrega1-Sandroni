@@ -7,20 +7,24 @@
     <title>Document</title>
 </head>
 <body>
+
+    {% extends 'app/base.html' %}
+    {% block content %}
     {% if formProf.errors %}
 
-    <p style="color: red;"> Revise los datos ingresados.</p>
+        <p style="color: red;"> Revise los datos ingresados.</p>
 
-    {% endif %}
+        {% endif %}
 
-    <form action="" method="POST">
-        {%csrf_token%}
+        <form action="" method="POST">
+            {%csrf_token%}
 
-        <table>
-            
-            {{formEstu.as_table}}
-            <button type="submit"> ENVIAR</button>
-        </table>
-    </form>
+            <table>
+                
+                {{formEstu.as_table}}
+                <button type="submit"> ENVIAR</button>
+            </table>
+        </form>
+    {% endblock %}
 </body>
 </html>

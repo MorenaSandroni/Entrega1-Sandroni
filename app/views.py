@@ -82,10 +82,6 @@ def buscar_estudiante(request):
     
     else:
         resultado = []
-    
 
-        #estudiantes = Estudiante.objects.filter(nombre=busquedaEstudiantes["criterio"]).all()
         
     return render (request, "app/busquedaEstudiantes.html", {"formularioEs" : formularioEs, "resultado" : resultado})
-
-    #return render (request, "app/busquedaEstudiantes.html", {"busquedaEstudiantes" :busquedaEstudiantes})
